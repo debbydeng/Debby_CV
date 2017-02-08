@@ -74,30 +74,27 @@ canvas{
   text-align: center;
   position:relative;
   .headPic{
-    @include size(160px,160px,#1fa4c7,auto);
-    @include basic(absolute,bold 2em "PoseiAOE",pink,70px,50px);
     text-align: center;
-    border-radius:50%;
-    opacity:0.7;
-    img{
-      display:inline-block;
-      margin-top:20px;
-    }
   }
   .name{
     font:bold 2em "times";
-    margin-top:200px;
+    margin-top:20px;
   }
   .job{
-    margin-top:200px;
+    margin-top:150px;
     font:bold 1.5em/1.5em "times";
     .email{
       text-decoration:none;
     }
+    p{
+      span{
+        color:#ffaa13;
+      }
+    }
   }
   .wrap{
     @include size(100px,100px,transparent,auto,none);
-    @include basic(absolute,bold 1.5em "times",#fff,110px,calc(50% + 30px));
+    @include basic(absolute,bold 1.5em "times",#fff,110px,calc(50% + 70px));
     perspective:500px;
     -webkit-perspective: 500px;
     .rotate{

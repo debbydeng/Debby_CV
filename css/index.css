@@ -61,30 +61,17 @@ canvas {
   text-align: center;
   position: relative; }
   .sidebar .headPic {
-    width: 160px;
-    height: 160px;
-    background: #1fa4c7;
-    padding: auto;
-    border: 1px solid yellow;
-    position: absolute;
-    font: bold 2em "PoseiAOE";
-    color: pink;
-    left: 70px;
-    top: 50px;
-    text-align: center;
-    border-radius: 50%;
-    opacity: 0.7; }
-    .sidebar .headPic img {
-      display: inline-block;
-      margin-top: 20px; }
+    text-align: center; }
   .sidebar .name {
     font: bold 2em "times";
-    margin-top: 200px; }
+    margin-top: 20px; }
   .sidebar .job {
-    margin-top: 200px;
+    margin-top: 150px;
     font: bold 1.5em/1.5em "times"; }
     .sidebar .job .email {
       text-decoration: none; }
+    .sidebar .job p span {
+      color: #ffaa13; }
   .sidebar .wrap {
     width: 100px;
     height: 100px;
@@ -95,7 +82,7 @@ canvas {
     font: bold 1.5em "times";
     color: #fff;
     left: 110px;
-    top: calc(50% + 30px);
+    top: calc(50% + 70px);
     perspective: 500px;
     -webkit-perspective: 500px; }
     .sidebar .wrap .rotate {
