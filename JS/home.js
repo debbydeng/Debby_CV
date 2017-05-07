@@ -80,7 +80,7 @@ $(function () {
                     flag = false;
                     var value = e.wheelDelta ? e.wheelDelta : e.detail;
                     if (value == 120 || value == 3) {
-                        index = --index >= 0 ? i : 7;
+                        index = --index >= 0 ? index : 7;
                         sliding(DIV, ICON, index, "down");
                     } else if (value == -120 || value == -3) {
                         index = ++index < 8 ? index : 0;
