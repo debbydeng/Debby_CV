@@ -373,7 +373,8 @@ div.main{
     }
   }
 @media screen and (max-width:768px) {
-  .sidebar{
+  div.sidebar{
+    width:100%;
     position:absolute;
     transition:transform .5s ease-out;
   }
