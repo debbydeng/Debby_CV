@@ -25,11 +25,8 @@ $(function () {
         //var t,i=1;
         var flag = true;
         var wh = $(window).height() / 2 - 106;
-        var DIV = $(".slide"), ICON = $(".main ul.page li");
+        var DIV, ICON = $(".main ul.page li");
         $(".main ul.page").css({marginTop: wh});
-        DIV.eq(0).addClass("slideActive");
-        ICON.eq(0).find("span").addClass("active");
-
         function sliding(DIV, ICON, i, direction) {
             //parameter i : index of next page;
             var a, b;
@@ -58,6 +55,7 @@ $(function () {
         var last = 0;
 
         function direction(i) {
+            DIV = $(".slide");
             last = ICON.find("span.active").parent().index();
             if (i > last) {
                 sliding(DIV, ICON, i, "up");
@@ -65,7 +63,6 @@ $(function () {
                 sliding(DIV, ICON, i, "down");
             }
         }
-
 
         ICON.click(function () {
             var i = $(this).index();
@@ -75,19 +72,37 @@ $(function () {
         //检验是否在手机显示,若是，则也具有滚轮事件
         if ($(window).width() < 768) {
             $('.sidebar').addClass('slide');
-            var num = 0;
-            $(window).swipe({
+            DIV = $(".slide");
+            DIV.eq(0).addClass("slideActive");
+            var num = 0, index = 0;
+            window.onmousewheel = function (e) {
+                if (flag) {
+                    flag = false;
+                    var value = e.wheelDelta ? e.wheelDelta : e.detail;
+                    if (value == 120 || value == 3) {
+                        index = --index >= 0 ? i : 7;
+                        sliding(DIV, ICON, index, "down");
+                    } else if (value == -120 || value == -3) {
+                        index = ++index < 8 ? index : 0;
+                        sliding(DIV, ICON, index, "up");
+                    }
+                }
+            };
+            $(document).swipe({
                 up: function () {
                     num = ++num < 8 ? num : 0;
-                    sliding(DIV,ICON,num,"up");
+                    sliding(DIV, ICON, num, "up");
                 },
                 down: function () {
-                    num=--num >=0? num : 7;
-                    sliding(DIV,ICON,num,"down");
+                    num = --num >= 0 ? num : 7;
+                    sliding(DIV, ICON, num, "down");
                 }
             });
         } else {
             $('.sidebar').removeClass('slide');
+            DIV = $(".slide");
+            DIV.eq(0).addClass("slideActive");
+            ICON.eq(0).find("span").addClass("active");
             //滚轮事件Firefox 使用detail，其余四类使用wheelDelta，detail与wheelDelta只各取两个 值，detail只取±3，wheelDelta只取±120，其中正数表示为向上，负数表示向下。
             window.onmousewheel = function (e) {
                 if (flag) {
