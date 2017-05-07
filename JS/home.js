@@ -89,11 +89,11 @@ $(function () {
                 }
             };
             $('body').swipe({
-                down: function () {
+                up: function () {
                     num = ++num < 8 ? num : 0;
                     sliding(DIV, ICON, num, "up");
                 },
-                up: function () {
+                down: function () {
                     num = --num >= 0 ? num : 7;
                     sliding(DIV, ICON, num, "down");
                 }

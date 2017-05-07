@@ -10,13 +10,16 @@ ul li {
 
 a {
   text-decoration: none; }
+  
+html,body{
+  height:100%;overflow:hidden
+}
 
 body {
   font-size: 62.5%;
-  height: 100%;
   border-radius: 5px;
   position: relative;
-  overflow-y: hidden; }
+  }
 
 canvas {
   cursor: crosshair;
