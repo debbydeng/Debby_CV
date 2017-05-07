@@ -4,7 +4,7 @@
 $(function(){
     //fireworks Canvas animation
     var flag=1; //detect if first time load the web;
-    var cw=window.innerWidth,ch=window.innerHeight;
+    var cw=$(window).width(),ch=$(window).height();
     var canvas=$("#canvas")[0];
     canvas.width=cw;canvas.height=ch;
     var ctx=canvas.getContext("2d");
@@ -152,7 +152,6 @@ $(function(){
 
 if(flag==1){
     createfireworks();
-    console.log(flag);
     flag++
 }else{
     if(timerTick>=timerTotal){

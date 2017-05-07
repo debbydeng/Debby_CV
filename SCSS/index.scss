@@ -1,20 +1,16 @@
 *{padding:0;margin:0;}
-html{
-  height:100%;
   h2{
     font-size:2em;
   }
   ul li{
     list-style-type: none;
   }
-}
-
 a{
   text-decoration: none;
 }
 body{
+  font-size: 62.5%;
   height:100%;
-  border:2px solid #fecb34;
   border-radius:5px;
   position:relative;
   overflow-y:hidden;
@@ -36,25 +32,23 @@ canvas{
   left:$left;
   top:$top;
 }
-.slogan, .sign {
-  @include basic(absolute,bold 32px "PoseiAOE",#fff,50%,50%);
+@mixin basicRB($position,$font,$color,$right,$bottom){
+  position:$position;
+  font:$font;
+  color:$color;
+  right:$right;
+  bottom:$bottom;
 }
 .slogan{
-  margin:{
-    left:-90px;
-    top:-20px;
-  }
-}
-.sign{
-  margin:{
-    left:50px;
-    top:40px;
-  }
+  @include basic(absolute,bold 3rem "PoseiAOE",#fff,50%,50%);
+  transform:translate(-50%,-50%);
+  -webkit-transform:translate(-50%,-50%);
 }
 .enter{
-  @include basic(absolute,bold 2em "PoseiAOE",pink,80%,70%);
+  @include basicRB(absolute,bold 2em "PoseiAOE",pink,30px,30px);
   cursor:pointer;
 }
+
 
 @mixin size($width,$height,$background,$padding,$border:1px solid yellow){
   width:$width;
@@ -69,20 +63,24 @@ canvas{
   opacity:$opacity;
 }
 .sidebar{
-  float:left;
-  @include size(300px,100%,#fff,50px 10px,none);
+  background:rgba(166, 241, 241, 0.62);
+  padding:20px 15px 0 15px ;
+  height: 100%;
   text-align: center;
   position:relative;
   .headPic{
-    text-align: center;
+    img{
+      width:100%;
+    }
   }
   .name{
     font:bold 2em "times";
     margin-top:20px;
   }
   .job{
-    margin-top:150px;
-    font:bold 1.5em/1.5em "times";
+    @include basicRB(absolute,bold 1.5em/1.5em "times",black,50%,50px);
+    transform:translateX(50%);
+    -webkit-transform:translateX(50%);
     .email{
       text-decoration:none;
     }
@@ -94,7 +92,9 @@ canvas{
   }
   .wrap{
     @include size(100px,100px,transparent,auto,none);
-    @include basic(absolute,bold 1.5em "times",#fff,110px,calc(50% + 70px));
+    @include basic(absolute,bold 1.5em "times",#fff,50%,50%);
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-20%);
     perspective:500px;
     -webkit-perspective: 500px;
     .rotate{
@@ -133,50 +133,45 @@ canvas{
   }
 }
 $font:normal 1.2em "times";
-.main{
-  float:left;
-  @include size(calc(100% - 300px),100%,#fff,auto,none);
-  border-left:2px solid #fecb34;
+div.main{
+  height:100%;
   position:relative;
+  padding: 0;
   &>div{
     display:none;
     @include basic(absolute,$font,#fecb34,0,0);
-    @include size(100%,100%,#231f20,auto,none);
-    padding:15px 40px;
-    text-align:center;
+    @include size(100%,100%,#231f20,0,none);
     transition:transform .5s ease-out;
     word-break:break-all ;
     .wrap{
       position:relative;
       top:50%;
-      margin-top:-200px;
+      -webkit-transform:translateY(-70%);
+      transform:translateY(-70%)
     }
     h1{
-      margin:15px 0;
+      margin:30px;
     }
     h2{
       color:#88ead0;
     }
-    .imgWrap{
-      position:absolute;
-      left:50%;
-      top:calc(50% - 50px);
-    }
     .tech{
-      position:relative;
-      padding-left:120px;
-      height:calc(100% - 70px);
-    }
-    div.git{
-      position:absolute;
-      left:120px;
-      bottom:50px;
+      padding-left:40px;
     }
 
+
+
+
     &:nth-child(1){
+      padding-top:20px;
       position:relative;
+      img{
+        width:80%;
+      }
       .slogan2{
-        @include basic(absolute,$font,#fecb34,calc(50% - 150px),80%)
+        @include basicRB(absolute,$font,#fecb34,50%,80px);
+        -webkit-transform:translateX(50%);
+        transform:translateX(50%)
       }
     }
     &:nth-child(2){
@@ -198,7 +193,7 @@ $font:normal 1.2em "times";
             @include size(40px,40px,#75ce66,auto,none);
             border-radius:50%;
             box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
-            @include basic(absolute,$font,#231f20,calc(50% - 20px),20px);
+            @include basic(absolute,$font,#231f20,calc(50% + 10px),20px);
             img{
               position:relative;
               top:6px;
@@ -207,8 +202,8 @@ $font:normal 1.2em "times";
           .line_content{
             position:relative;
             text-align: left;
-            width:220px;
-            margin:20px calc(50% - 260px);
+            width: 200px;
+            margin:20px calc(50% - 208px);
             border:1px solid #ccc;
             box-shadow: 0 3px 0 #d7e4ed;
             border-radius:5px;
@@ -236,9 +231,11 @@ $font:normal 1.2em "times";
             clear:both;
           }
           &:nth-child(even){
+            .line_img{
+              left:calc(50% - 50px)
+            }
             .line_content{
-              margin:0 calc(50% - 260px) 0 0;
-              float:right;
+              margin: 20px calc(50% + 8px);
               &:after{
                 @include basic(absolute,$font,#fff,-17px,36px);
                 border-right:8px solid #fff;
@@ -255,24 +252,26 @@ $font:normal 1.2em "times";
       p{
         margin-top:25px;
       }
-      .word{
-        @include size(70%,300px,#75ce66,20px,none);
-        margin-top:50px;
-        margin-left:calc(50% - 35%);
-        border-bottom-right-radius: 100%;
-        border-top-left-radius:100%;
-        li{
-          margin-top:1.1em;
-          font:italic 1.4em "times";
-          color:#fff;
+      .skill{
+        margin:20px 20px 20px 40px;
+        h3{
+          color: #75ce66;
         }
+        ul{
+          @include size(calc(100% - 20px),auto,#75ce66,20px,none);
 
+          border-radius:50px;
+          li{
+            font:normal 2rem "times";
+            color:#fff;
+            margin-bottom:15px;
+            list-style-type:disc;
+          }
+        }
       }
 
     }
     &:nth-child(7){
-      .wrap{
-        margin-top:-250px;
         font:1.3em/1.5em "times";
        p{
          color:#1fa4c7;
@@ -288,9 +287,9 @@ $font:normal 1.2em "times";
            }
          }
         }
-      }
+
       .back{
-        @include basic(absolute,bold 2.5em "PoseiAOE",#fecb34,85%,80%);
+        @include basicRB(absolute,bold 2.5em "PoseiAOE",#fecb34,30px,30px);
         @include size(100px,100px,transparent,auto,none);
         display:table-cell;
         vertical-align: middle;
@@ -334,65 +333,50 @@ $font:normal 1.2em "times";
 
 }
 
-@at-root{
-  @media screen and (max-width:1072px) and (min-width:993px){
-    html body{
-      font-size:12px;
+
+  @media screen and (min-width:993px){
+    .sidebar{
+      .headPic{
+        img{
+          width:200px;
+          height:200px;
+        }
+      }
+    }
+    .tech{
+      .imgWrap{
+        margin:50px;
+      }
+    }
+    div.main{
+      &>div{
+        &:nth-child(1){
+          .slogan2{
+            bottom:10px;
+          }
+        }
+      }
     }
   }
   @media screen and (max-width:992px){
-    html body{
-      font-size:12px;
+    .sidebar{
+      .headPic{
+        img{
+          width:150px;
+          height:150px;
+        }
+      }
     }
+
     .main > div{
-      .tech{
-        height:calc((100% - 70px)/2);
-        .imgWrap{
-          position:absolute;
-          left:0;
-          top:calc(50% - 50px);
-        }
-        .git{
-          position:relative;
-          left:0;
-          bottom:0;
-        }
-      }
-      &:nth-child(4){
-        section{
-
-          &:before{
-            left:20px;
-          }
-          &>div{
-            margin-left:80px;
-            .line_img{
-              left:-100px;
-            }
-            .line_content{
-              width:80%;
-              min-width:200px;
-              &:after{
-                left:-17px;
-                border-right:8px solid #fff;
-                border-left-color:transparent;
-              }
-              margin:20px 0;
-            }
-            &:nth-child(even){
-              .line_content{
-                float:none;
-                margin:20px 0;
-              }
-            }
-          }
-
-        }
-      }
-
 
     }
-
-
   }
-}
+@media screen and (max-width:768px) {
+  .sidebar{
+    position:absolute;
+    transition:transform .5s ease-out;
+  }
+  }
+
+

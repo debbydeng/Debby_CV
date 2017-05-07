@@ -2,19 +2,18 @@
   padding: 0;
   margin: 0; }
 
-html {
-  height: 100%; }
-  html h2 {
-    font-size: 2em; }
-  html ul li {
-    list-style-type: none; }
+h2 {
+  font-size: 2em; }
+
+ul li {
+  list-style-type: none; }
 
 a {
   text-decoration: none; }
 
 body {
+  font-size: 62.5%;
   height: 100%;
-  border: 2px solid #fecb34;
   border-radius: 5px;
   position: relative;
   overflow-y: hidden; }
@@ -28,46 +27,42 @@ canvas {
   font-family: "PoseiAOE";
   src: url("../font/PoseiAOE.woff");
   src: url("../font/PoseiAOE.ttf"), url("../font/PoseiAOE.eot"); }
-.slogan, .sign {
+.slogan {
   position: absolute;
-  font: bold 32px "PoseiAOE";
+  font: bold 3rem "PoseiAOE";
   color: #fff;
   left: 50%;
-  top: 50%; }
-
-.slogan {
-  margin-left: -90px;
-  margin-top: -20px; }
-
-.sign {
-  margin-left: 50px;
-  margin-top: 40px; }
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); }
 
 .enter {
   position: absolute;
   font: bold 2em "PoseiAOE";
   color: pink;
-  left: 80%;
-  top: 70%;
+  right: 30px;
+  bottom: 30px;
   cursor: pointer; }
 
 .sidebar {
-  float: left;
-  width: 300px;
+  background: rgba(166, 241, 241, 0.62);
+  padding: 20px 15px 0 15px;
   height: 100%;
-  background: #fff;
-  padding: 50px 10px;
-  border: none;
   text-align: center;
   position: relative; }
-  .sidebar .headPic {
-    text-align: center; }
+  .sidebar .headPic img {
+    width: 100%; }
   .sidebar .name {
     font: bold 2em "times";
     margin-top: 20px; }
   .sidebar .job {
-    margin-top: 150px;
-    font: bold 1.5em/1.5em "times"; }
+    position: absolute;
+    font: bold 1.5em/1.5em "times";
+    color: black;
+    right: 50%;
+    bottom: 50px;
+    transform: translateX(50%);
+    -webkit-transform: translateX(50%); }
     .sidebar .job .email {
       text-decoration: none; }
     .sidebar .job p span {
@@ -81,8 +76,10 @@ canvas {
     position: absolute;
     font: bold 1.5em "times";
     color: #fff;
-    left: 110px;
-    top: calc(50% + 70px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -20%);
     perspective: 500px;
     -webkit-perspective: 500px; }
     .sidebar .wrap .rotate {
@@ -131,16 +128,11 @@ canvas {
           background: #fa6213;
           opacity: 0.8; }
 
-.main {
-  float: left;
-  width: calc(100% - 300px);
+div.main {
   height: 100%;
-  background: #fff;
-  padding: auto;
-  border: none;
-  border-left: 2px solid #fecb34;
-  position: relative; }
-  .main > div {
+  position: relative;
+  padding: 0; }
+  div.main > div {
     display: none;
     position: absolute;
     font: normal 1.2em "times";
@@ -150,44 +142,38 @@ canvas {
     width: 100%;
     height: 100%;
     background: #231f20;
-    padding: auto;
+    padding: 0;
     border: none;
-    padding: 15px 40px;
-    text-align: center;
     transition: transform .5s ease-out;
     word-break: break-all; }
-    .main > div .wrap {
+    div.main > div .wrap {
       position: relative;
       top: 50%;
-      margin-top: -200px; }
-    .main > div h1 {
-      margin: 15px 0; }
-    .main > div h2 {
+      -webkit-transform: translateY(-70%);
+      transform: translateY(-70%); }
+    div.main > div h1 {
+      margin: 30px; }
+    div.main > div h2 {
       color: #88ead0; }
-    .main > div .imgWrap {
-      position: absolute;
-      left: 50%;
-      top: calc(50% - 50px); }
-    .main > div .tech {
-      position: relative;
-      padding-left: 120px;
-      height: calc(100% - 70px); }
-    .main > div div.git {
-      position: absolute;
-      left: 120px;
-      bottom: 50px; }
-    .main > div:nth-child(1) {
+    div.main > div .tech {
+      padding-left: 40px; }
+    div.main > div:nth-child(1) {
+      padding-top: 20px;
       position: relative; }
-      .main > div:nth-child(1) .slogan2 {
+      div.main > div:nth-child(1) img {
+        width: 80%; }
+      div.main > div:nth-child(1) .slogan2 {
         position: absolute;
         font: normal 1.2em "times";
         color: #fecb34;
-        left: calc(50% - 150px);
-        top: 80%; }
-    .main > div:nth-child(4) section {
+        right: 50%;
+        bottom: 80px;
+        -webkit-transform: translateX(50%);
+        transform: translateX(50%); }
+    div.main > div:nth-child(4) section {
       position: relative;
       padding: 0 20px; }
-      .main > div:nth-child(4) section:before {
+      div.main > div:nth-child(4) section:before {
         content: "";
         width: 4px;
         height: 100%;
@@ -199,9 +185,9 @@ canvas {
         color: #231f20;
         left: calc(50% - 2px);
         top: 0; }
-      .main > div:nth-child(4) section > div {
+      div.main > div:nth-child(4) section > div {
         position: relative; }
-        .main > div:nth-child(4) section > div .line_img {
+        div.main > div:nth-child(4) section > div .line_img {
           width: 40px;
           height: 40px;
           background: #75ce66;
@@ -212,24 +198,24 @@ canvas {
           position: absolute;
           font: normal 1.2em "times";
           color: #231f20;
-          left: calc(50% - 20px);
+          left: calc(50% + 10px);
           top: 20px; }
-          .main > div:nth-child(4) section > div .line_img img {
+          div.main > div:nth-child(4) section > div .line_img img {
             position: relative;
             top: 6px; }
-        .main > div:nth-child(4) section > div .line_content {
+        div.main > div:nth-child(4) section > div .line_content {
           position: relative;
           text-align: left;
-          width: 220px;
-          margin: 20px calc(50% - 260px);
+          width: 200px;
+          margin: 20px calc(50% - 208px);
           border: 1px solid #ccc;
           box-shadow: 0 3px 0 #d7e4ed;
           border-radius: 5px;
           background: #75ce66;
           padding: 5px 20px; }
-          .main > div:nth-child(4) section > div .line_content p {
+          div.main > div:nth-child(4) section > div .line_content p {
             color: #fff; }
-          .main > div:nth-child(4) section > div .line_content:after {
+          div.main > div:nth-child(4) section > div .line_content:after {
             content: "";
             display: block;
             height: 0;
@@ -241,14 +227,15 @@ canvas {
             left: calc( 100% - 1px);
             top: 36px;
             border-left: 8px solid #fff; }
-        .main > div:nth-child(4) section > div:after {
+        div.main > div:nth-child(4) section > div:after {
           display: block;
           content: "";
           clear: both; }
-        .main > div:nth-child(4) section > div:nth-child(even) .line_content {
-          margin: 0 calc(50% - 260px) 0 0;
-          float: right; }
-          .main > div:nth-child(4) section > div:nth-child(even) .line_content:after {
+        div.main > div:nth-child(4) section > div:nth-child(even) .line_img {
+          left: calc(50% - 50px); }
+        div.main > div:nth-child(4) section > div:nth-child(even) .line_content {
+          margin: 20px calc(50% + 8px); }
+          div.main > div:nth-child(4) section > div:nth-child(even) .line_content:after {
             position: absolute;
             font: normal 1.2em "times";
             color: #fff;
@@ -256,60 +243,61 @@ canvas {
             top: 36px;
             border-right: 8px solid #fff;
             border-left-color: transparent; }
-    .main > div:nth-child(6) p {
+    div.main > div:nth-child(6) p {
       margin-top: 25px; }
-    .main > div:nth-child(6) .word {
-      width: 70%;
-      height: 300px;
-      background: #75ce66;
-      padding: 20px;
-      border: none;
-      margin-top: 50px;
-      margin-left: calc(50% - 35%);
-      border-bottom-right-radius: 100%;
-      border-top-left-radius: 100%; }
-      .main > div:nth-child(6) .word li {
-        margin-top: 1.1em;
-        font: italic 1.4em "times";
-        color: #fff; }
-    .main > div:nth-child(7) .wrap {
-      margin-top: -250px;
+    div.main > div:nth-child(6) .skill {
+      margin: 20px 20px 20px 40px; }
+      div.main > div:nth-child(6) .skill h3 {
+        color: #75ce66; }
+      div.main > div:nth-child(6) .skill ul {
+        width: calc(100% - 20px);
+        height: auto;
+        background: #75ce66;
+        padding: 20px;
+        border: none;
+        border-radius: 50px; }
+        div.main > div:nth-child(6) .skill ul li {
+          font: normal 2rem "times";
+          color: #fff;
+          margin-bottom: 15px;
+          list-style-type: disc; }
+    div.main > div:nth-child(7) {
       font: 1.3em/1.5em "times"; }
-      .main > div:nth-child(7) .wrap p {
+      div.main > div:nth-child(7) p {
         color: #1fa4c7; }
-        .main > div:nth-child(7) .wrap p span {
+        div.main > div:nth-child(7) p span {
           color: #99ff83;
           font: bold 1.5em times; }
-        .main > div:nth-child(7) .wrap p a {
+        div.main > div:nth-child(7) p a {
           color: #1fa4c7; }
-          .main > div:nth-child(7) .wrap p a.download {
+          div.main > div:nth-child(7) p a.download {
             font-size: 1.5em;
             color: #fff; }
-    .main > div:nth-child(7) .back {
-      position: absolute;
-      font: bold 2.5em "PoseiAOE";
-      color: #fecb34;
-      left: 85%;
-      top: 80%;
-      width: 100px;
-      height: 100px;
-      background: transparent;
-      padding: auto;
-      border: none;
-      display: table-cell;
-      vertical-align: middle;
-      cursor: pointer; }
-      .main > div:nth-child(7) .back a {
-        color: orangered; }
-  .main ul.page {
+      div.main > div:nth-child(7) .back {
+        position: absolute;
+        font: bold 2.5em "PoseiAOE";
+        color: #fecb34;
+        right: 30px;
+        bottom: 30px;
+        width: 100px;
+        height: 100px;
+        background: transparent;
+        padding: auto;
+        border: none;
+        display: table-cell;
+        vertical-align: middle;
+        cursor: pointer; }
+        div.main > div:nth-child(7) .back a {
+          color: orangered; }
+  div.main ul.page {
     position: absolute;
     font: normal 1.2em "times";
     color: #000;
     left: 20px;
     top: 0; }
-    .main ul.page li {
+    div.main ul.page li {
       cursor: pointer; }
-      .main ul.page li span {
+      div.main ul.page li span {
         display: inline-block;
         width: 8px;
         height: 8px;
@@ -317,54 +305,38 @@ canvas {
         padding: auto;
         border: 1px solid #fecb34;
         border-radius: 50%; }
-        .main ul.page li span.active {
+        div.main ul.page li span.active {
           background: #fecb34; }
-  .main .slideUp {
+  div.main .slideUp {
     display: block;
     transform: translateY(-100%);
     -webkit-transform: translateY(-100%); }
-  .main .slideDown {
+  div.main .slideDown {
     display: block;
     transform: translateY(100%);
     -webkit-transform: translateY(100%); }
-  .main .slideActive {
+  div.main .slideActive {
     display: block;
     transform: translateY(0px);
     -webkit-transform: translateY(0px); }
 
-@media screen and (max-width: 1072px) and (min-width: 993px) {
-  html body {
-    font-size: 12px; } }
-@media screen and (max-width: 992px) {
-  html body {
-    font-size: 12px; }
+@media screen and (min-width: 993px) {
+  .sidebar .headPic img {
+    width: 200px;
+    height: 200px; }
 
-  .main > div .tech {
-    height: calc((100% - 70px)/2); }
-    .main > div .tech .imgWrap {
-      position: absolute;
-      left: 0;
-      top: calc(50% - 50px); }
-    .main > div .tech .git {
-      position: relative;
-      left: 0;
-      bottom: 0; }
-  .main > div:nth-child(4) section:before {
-    left: 20px; }
-  .main > div:nth-child(4) section > div {
-    margin-left: 80px; }
-    .main > div:nth-child(4) section > div .line_img {
-      left: -100px; }
-    .main > div:nth-child(4) section > div .line_content {
-      width: 80%;
-      min-width: 200px;
-      margin: 20px 0; }
-      .main > div:nth-child(4) section > div .line_content:after {
-        left: -17px;
-        border-right: 8px solid #fff;
-        border-left-color: transparent; }
-    .main > div:nth-child(4) section > div:nth-child(even) .line_content {
-      float: none;
-      margin: 20px 0; } }
+  .tech .imgWrap {
+    margin: 50px; }
+
+  div.main > div:nth-child(1) .slogan2 {
+    bottom: 10px; } }
+@media screen and (max-width: 992px) {
+  .sidebar .headPic img {
+    width: 150px;
+    height: 150px; } }
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    transition: transform .5s ease-out; } }
 
 /*# sourceMappingURL=index.css.map */

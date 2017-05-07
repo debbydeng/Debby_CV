@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no, maxium-scale=1"/>
     <meta charset="UTF-8">
     <title>debby's CV</title>
-   <link href="css/index.css" type="text/css" rel="stylesheet"/>
+    <link href="css/index.css" type="text/css" rel="stylesheet"/>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <canvas id="canvas"></canvas>
-<span class="slogan">Welcome to my Space</span>
-<span class="sign">-Debby Deng</span>
+<div class="slogan text-center">
+    <p>Welcome to my Space</p>
+    <p class="text-right">-Debby Deng</p>
+</div>
 <div class="enter"><span>Know More</span><img src="img/handpalm_1.png" title="Enter My Space"/></div>
 <script type="text/javascript" src="JS/jquery-2.2.4.js"></script>
 <script type="text/javascript" src="JS/index.js"></script>
 </body>
+<script>
+    $('html').height($(window).height());
+</script>
 </html>
