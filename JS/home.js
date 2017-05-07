@@ -88,7 +88,7 @@ $(function () {
                     }
                 }
             };
-            $(document).swipe({
+            $('body').swipe({
                 up: function () {
                     num = ++num < 8 ? num : 0;
                     sliding(DIV, ICON, num, "up");
