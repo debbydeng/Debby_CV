@@ -2,6 +2,7 @@
  * Created by ZTHK10 on 2016/12/6.
  */
 $(function () {
+	$('html').height($(window).height());
     //rotate tech items
     var t = null;
     var i = 0;
@@ -41,7 +42,7 @@ $(function () {
             ICON.eq(i).find("span").addClass("active");
             var thisDIV = $(".slide.slideActive");
             DIV.eq(i).addClass(a);
-			alert(DIV.eq(i).css('transform') +"wh"+$(window).height()+"html"+$('html').height()+"body"+$('body').height()+" window screen"+window.screen.height)
+			alert(DIV.eq(i).css('transform') +"wh"+$(window).height()+"html"+$('html').height()+"body"+$('body').height()+" window screen"+window.screen.height+"wavail"+window.screen.availHeight)
             DIV.eq(i)[0].offsetWidth;
             thisDIV.addClass(b).removeClass("slideActive");
             DIV.eq(i).addClass("slideActive").removeClass(a);
@@ -72,6 +73,7 @@ $(function () {
 
         //检验是否在手机显示,若是，则也具有滚轮事件
         if ($(window).width() <=768) {
+			$('html').height(window.screen.availHeight);
             $('.sidebar').addClass('slide');
             DIV = $(".slide");
             DIV.eq(0).addClass("slideActive");
