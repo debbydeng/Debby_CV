@@ -90,7 +90,8 @@ $(function () {
                     }
                 }
             };
-            $('body').swipe({
+			//该插件是通过元素移动的距离来判断是否进行滑动，如果此处用body来判断，body会随着元素的滑动改变位置，也即body也滑动了，导致每次单屏的内容会溢出或者不足。改用$('.slideActive')
+            $('.slideActive').swipe({
                 up: function () {
                     num = ++num < 8 ? num : 0;
                     sliding(DIV, ICON, num, "up");
