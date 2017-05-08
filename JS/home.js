@@ -70,7 +70,7 @@ $(function () {
         });
 
         //检验是否在手机显示,若是，则也具有滚轮事件
-        if ($(window).width() < 768) {
+        if ($(window).width() <=768) {
             $('.sidebar').addClass('slide');
             DIV = $(".slide");
             DIV.eq(0).addClass("slideActive");
@@ -89,11 +89,11 @@ $(function () {
                 }
             };
             $('body').swipe({
-                up: function () {
+                down: function () {
                     num = ++num < 8 ? num : 0;
                     sliding(DIV, ICON, num, "up");
                 },
-                down: function () {
+                up: function () {
                     num = --num >= 0 ? num : 7;
                     sliding(DIV, ICON, num, "down");
                 }
@@ -101,6 +101,7 @@ $(function () {
         } else {
             $('.sidebar').removeClass('slide');
             DIV = $(".slide");
+            $('.slide').eq(0).css('display','block');
             DIV.eq(0).addClass("slideActive");
             ICON.eq(0).find("span").addClass("active");
             //滚轮事件Firefox 使用detail，其余四类使用wheelDelta，detail与wheelDelta只各取两个 值，detail只取±3，wheelDelta只取±120，其中正数表示为向上，负数表示向下。
@@ -130,6 +131,7 @@ $(function () {
     }
 
     slide();
+
 
 
 });

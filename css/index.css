@@ -10,14 +10,14 @@ ul li {
 
 a {
   text-decoration: none; }
-  
-body{
-  width: 100%;  height:100%;
+
+body {
+  width: 100%;
+  height: 100%;
   font-size: 62.5%;
-  border-radius:5px;
-  position:fixed;
-  overflow-y:hidden;
-}
+  border-radius: 5px;
+  position: fixed;
+  overflow-y: hidden; }
 
 canvas {
   cursor: crosshair;
@@ -159,8 +159,7 @@ div.main {
     div.main > div .tech {
       padding-left: 40px; }
     div.main > div:nth-child(1) {
-      padding-top: 20px;
-      position: relative; }
+      padding-top: 20px; }
       div.main > div:nth-child(1) img {
         width: 80%; }
       div.main > div:nth-child(1) .slogan2 {
@@ -308,18 +307,19 @@ div.main {
         border-radius: 50%; }
         div.main ul.page li span.active {
           background: #fecb34; }
-  div.main .slideUp {
-    display: block;
-    transform: translateY(-100%);
-    -webkit-transform: translateY(-100%); }
-  div.main .slideDown {
-    display: block;
-    transform: translateY(100%);
-    -webkit-transform: translateY(100%); }
-  div.main .slideActive {
-    display: block;
-    transform: translateY(0px);
-    -webkit-transform: translateY(0px); }
+
+.slide.slideUp {
+  display: block;
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%); }
+.slide.slideDown {
+  display: block;
+  transform: translateY(100%);
+  -webkit-transform: translateY(100%); }
+.slide.slideActive {
+  display: block;
+  transform: translateY(0px);
+  -webkit-transform: translateY(0px); }
 
 @media screen and (min-width: 993px) {
   .sidebar .headPic img {
@@ -335,8 +335,12 @@ div.main {
   .sidebar .headPic img {
     width: 150px;
     height: 150px; } }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
+  body {
+    position: fixed; }
+
   div.sidebar {
+    display: none;
     width: 100%;
     position: absolute;
     transition: transform .5s ease-out; } }
