@@ -74,6 +74,7 @@ $(function () {
         //检验是否在手机显示,若是，则也具有滚轮事件
         if ($(window).width() <=768) {
 			$('html').height(window.screen.availHeight);
+			$('body').height(window.screen.availHeight);
             $('.sidebar').addClass('slide');
             DIV = $(".slide");
             DIV.eq(0).addClass("slideActive");
