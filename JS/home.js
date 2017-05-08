@@ -42,7 +42,7 @@ $(function () {
             ICON.eq(i).find("span").addClass("active");
             var thisDIV = $(".slide.slideActive");
             DIV.eq(i).addClass(a);
-			alert(DIV.eq(i).css('transform') +"wh"+$(window).height()+"html"+$('html').height()+"body"+$('body').height()+" window screen"+window.screen.height+"wavail"+window.screen.availHeight)
+			console.log(DIV.eq(i).css('transform') +"wh"+$(window).height()+"html"+$('html').height()+"body"+$('body').height()+" window screen"+window.screen.height+"wavail"+window.screen.availHeight)
             DIV.eq(i)[0].offsetWidth;
             thisDIV.addClass(b).removeClass("slideActive");
             DIV.eq(i).addClass("slideActive").removeClass(a);
@@ -73,8 +73,6 @@ $(function () {
 
         //检验是否在手机显示,若是，则也具有滚轮事件
         if ($(window).width() <=768) {
-			$('html').height(window.screen.availHeight);
-			$('body').height(window.screen.availHeight);
             $('.sidebar').addClass('slide');
             DIV = $(".slide");
             DIV.eq(0).addClass("slideActive");
