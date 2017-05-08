@@ -41,7 +41,7 @@ $(function () {
             ICON.eq(i).find("span").addClass("active");
             var thisDIV = $(".slide.slideActive");
             DIV.eq(i).addClass(a);
-			alert(DIV.eq(i).css('transform'))
+			alert(DIV.eq(i).css('transform') +"wh"+$(window).height()+"html"+$('html').height()+"body"+$('body').height()+" window screen"+window.screen.height)
             DIV.eq(i)[0].offsetWidth;
             thisDIV.addClass(b).removeClass("slideActive");
             DIV.eq(i).addClass("slideActive").removeClass(a);
