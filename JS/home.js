@@ -40,8 +40,8 @@ $(function () {
             ICON.find("span").removeClass("active");
             ICON.eq(i).find("span").addClass("active");
             var thisDIV = $(".slide.slideActive");
-			alert(thisDIV.css('transform'))
             DIV.eq(i).addClass(a);
+			alert(DIV.eq(i).css('transform'))
             DIV.eq(i)[0].offsetWidth;
             thisDIV.addClass(b).removeClass("slideActive");
             DIV.eq(i).addClass("slideActive").removeClass(a);
