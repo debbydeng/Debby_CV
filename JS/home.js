@@ -2,7 +2,7 @@
  * Created by ZTHK10 on 2016/12/6.
  */
 $(function () {
-	$('html').height($(window).height());
+    $('html').height($(window).height());
     //rotate tech items
     var t = null;
     var i = 0;
@@ -42,7 +42,7 @@ $(function () {
             ICON.eq(i).find("span").addClass("active");
             var thisDIV = $(".slide.slideActive");
             DIV.eq(i).addClass(a);
-			console.log(DIV.eq(i).css('transform') +"wh"+$(window).height()+"html"+$('html').height()+"body"+$('body').height()+" window screen"+window.screen.height+"wavail"+window.screen.availHeight)
+          
             DIV.eq(i)[0].offsetWidth;
             thisDIV.addClass(b).removeClass("slideActive");
             DIV.eq(i).addClass("slideActive").removeClass(a);
@@ -77,6 +77,19 @@ $(function () {
             DIV = $(".slide");
             DIV.eq(0).addClass("slideActive");
             var num = 0, index = 0;
+            //创建hammer实例
+            var hammer=new Hammer($('body').get(0));
+            hammer.get('swipe').set({direction:Hammer.DIRECTION_ALL});
+            hammer.on('swipe',function(e){
+                console.log(e);
+                if(e.deltaY>120){
+                    swipe.up()
+                }else if(e.deltaY<-120){
+                    swipe.down()
+                }
+            });
+
+
             window.onmousewheel = function (e) {
                 if (flag) {
                     flag = false;
@@ -90,17 +103,16 @@ $(function () {
                     }
                 }
             };
-			//该插件是通过元素移动的距离来判断是否进行滑动，如果此处用body来判断，body会随着元素的滑动改变位置，也即body也滑动了，导致每次单屏的内容会溢出或者不足。改用$('.slideActive')
-            $('.slide').swipe({
-                up: function () {
+            var swipe={
+                down: function () {
                     num = ++num < 8 ? num : 0;
                     sliding(DIV, ICON, num, "up");
                 },
-                down: function () {
+                up: function () {
                     num = --num >= 0 ? num : 7;
                     sliding(DIV, ICON, num, "down");
                 }
-            });
+            };
         } else {
             $('.sidebar').removeClass('slide');
             DIV = $(".slide");
